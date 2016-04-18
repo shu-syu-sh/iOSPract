@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cOz-Xq-kTV">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="HWV-Tm-CuG">
+            <objects>
+                <viewController id="cOz-Xq-kTV" customClass="MainViewController" customModule="Pract" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fUY-SV-eWc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fpj-qv-WeT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cmJ-sD-XZ0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v45-ag-0DV">
+                                <rect key="frame" x="229" y="285" width="142" height="30"/>
+                                <state key="normal" title="Do Popup from code"/>
+                                <connections>
+                                    <action selector="doButton:" destination="cOz-Xq-kTV" eventType="touchUpInside" id="PNa-07-213"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apv-Z4-s8b">
+                                <rect key="frame" x="209" y="347" width="182" height="30"/>
+                                <state key="normal" title="Do Popup from storyboard"/>
+                                <connections>
+                                    <segue destination="OAM-QI-sit" kind="popoverPresentation" popoverAnchorView="Apv-Z4-s8b" id="MoA-mN-uet">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v45-ag-0DV" firstAttribute="centerX" secondItem="cmJ-sD-XZ0" secondAttribute="centerX" id="Bud-EL-Zn3"/>
+                            <constraint firstItem="Apv-Z4-s8b" firstAttribute="centerX" secondItem="cmJ-sD-XZ0" secondAttribute="centerX" id="GkH-29-dtJ"/>
+                            <constraint firstItem="v45-ag-0DV" firstAttribute="centerY" secondItem="cmJ-sD-XZ0" secondAttribute="centerY" id="hTH-eF-okt"/>
+                            <constraint firstItem="Apv-Z4-s8b" firstAttribute="top" secondItem="v45-ag-0DV" secondAttribute="bottom" constant="32" id="hxb-OY-lgT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olU-AG-rN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="190" y="292"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="dv1-ru-0SX">
+            <objects>
+                <tableViewController storyboardIdentifier="popup" id="OAM-QI-sit" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cPi-vb-OQI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MNV-TZ-Kfd">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MNV-TZ-Kfd" id="djG-SI-muZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OAM-QI-sit" id="MVX-aK-L5U"/>
+                            <outlet property="delegate" destination="OAM-QI-sit" id="DRl-5D-qos"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="cK0-C9-EEr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="9Ya-PU-F9R"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XD0-nV-iej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="190" y="1110"/>
+        </scene>
+    </scenes>
+</document>
